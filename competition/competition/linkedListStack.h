@@ -55,7 +55,7 @@ public:
 	void UndoInsertAt(int); // undo insert operation
 
 	~linkedListStack(void); // disrtactor
-	
+
 };
 
 template <class T>
@@ -76,7 +76,7 @@ public:
 	int Length(); // return number of elements
 
 	void Push(T); // push item to stack
-	 
+
 	void Pop(); // delete last item from stack
 
 	T Top(); // return last item from stack
