@@ -36,37 +36,51 @@ template<class T>
 void linkedListStack<T>::InsertAt(int pos, T  val)
 {
 
-	assert(pos >= 0 && pos < count);
+	assert(pos >= 0 && pos <= count);
 
-	Node* tmp = head;
-
-	Node* newNode = new Node;
-
-	if (pos == 0)
+	if (pos == count) // to insert at last of my list 
 	{
 
-		newNode->next = head;
-
-		head = newNode;
+		Append(val);
 
 	}
 
 	else
 	{
 
-		for (int i = 0; i < pos - 1; i++)
 
-			tmp = tmp->next;
+		Node* tmp = head;
 
-		newNode->next = tmp->next;
+		Node* newNode = new Node;
 
-		tmp->next = newNode;
+
+		if (pos == 0)
+		{
+
+			newNode->next = head;
+
+			head = newNode;
+
+		}
+
+		else
+		{
+
+			for (int i = 0; i < pos - 1; i++)
+
+				tmp = tmp->next;
+
+			newNode->next = tmp->next;
+
+			tmp->next = newNode;
+
+		}
+
+		newNode->value = val;
+
+		count++;
 
 	}
-
-	newNode->value = val;
-
-	count++;
 
 }
 
@@ -140,9 +154,11 @@ void linkedListStack<T>::DeleteAt(int pos)
 	{
 
 		for (int i = 0; i < pos - 1; i++)
+		{
 
 			tmp = tmp->next;
 
+		}
 		Node* del = tmp->next;
 
 		tmp->next = del->next;
@@ -150,8 +166,11 @@ void linkedListStack<T>::DeleteAt(int pos)
 		delete del;
 
 		if (pos == count - 1)
+		{
 
 			tail = tmp;
+
+		}
 
 	}
 
@@ -207,8 +226,11 @@ void linkedListStack<T>::UndoInsertAt(int index) // to undo inserted number , i 
 	{
 
 		for (int i = 0; i < index - 1; i++)
+		{
 
 			tmp = tmp->next;
+
+		}
 
 		Node* del = tmp->next;
 
@@ -217,8 +239,11 @@ void linkedListStack<T>::UndoInsertAt(int index) // to undo inserted number , i 
 		delete del;
 
 		if (index == count - 1)
+		{
 
 			tail = tmp;
+
+		}
 
 	}
 
@@ -269,8 +294,11 @@ void StackArr<T>::Push(T val)
 {
 
 	if (elements == size)
+	{
 
 		Expand();
+
+	}
 
 	arr[elements] = val;
 
@@ -319,8 +347,11 @@ void StackArr<T>::Expand()
 	T* tmp = new T[size];
 
 	for (int i = 0; i < elements; i++)
+	{
 
 		tmp[i] = arr[i];
+
+	}
 
 	delete[] arr;
 
