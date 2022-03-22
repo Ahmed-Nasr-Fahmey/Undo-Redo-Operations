@@ -35,63 +35,63 @@ template<class T>
 
 void linkedListStack<T>::InsertAt(int pos, T  val)
 {
-	
-		assert(pos >= 0 && pos < count);
 
-		Node* tmp = head;
+	assert(pos >= 0 && pos < count);
 
-		Node* newNode = new Node;
+	Node* tmp = head;
 
-		if (pos == 0)
-		{
+	Node* newNode = new Node;
 
-			newNode->next = head;
-
-			head = newNode;
-
-		}
-
-		else
-		{
-
-			for (int i = 0; i < pos - 1; i++)
-
-				tmp = tmp->next;
-
-			newNode->next = tmp->next;
-
-			tmp->next = newNode;
-
-		}
-
-		newNode->value = val;
-
-		count++;
-	
-}
-
-template<class T>
-
-void linkedListStack<T>::Append(T newValue)
-{
-
-	Node* newPtr = new Node;
-
-	newPtr->value = newValue;
-
-	if (head == 0)
+	if (pos == 0)
 	{
 
-		head = tail = newPtr;
+		newNode->next = head;
+
+		head = newNode;
 
 	}
 
 	else
 	{
 
-		newPtr->next = head;
+		for (int i = 0; i < pos - 1; i++)
 
-		head = newPtr;
+			tmp = tmp->next;
+
+		newNode->next = tmp->next;
+
+		tmp->next = newNode;
+
+	}
+
+	newNode->value = val;
+
+	count++;
+
+}
+
+template <class T>
+
+void linkedListStack<T>::Append(T newValue)
+{
+
+	Node* newNode = new Node;
+
+	newNode->value = newValue;
+
+	if (head == 0)
+	{
+
+		head = tail = newNode;
+
+	}
+
+	else
+	{
+
+		tail->next = newNode;
+
+		tail = newNode;
 
 	}
 
@@ -164,15 +164,22 @@ template<class T>
 void linkedListStack<T>::UndoAppend()  // delete last item Appended
 {
 
-	assert(! isEmpty());
+	assert(!isEmpty());
 
-	Node* temp = head;
+	Node* newPtr = head;
 
-	head = temp->next;
+	for (int i = 0; i < count - 2; i++)
+	{
 
-	temp->next = NULL;
+		newPtr = newPtr->next;
 
-	delete temp;
+	}
+
+	delete tail;
+
+	tail = newPtr;
+
+	tail->next = NULL;
 
 	count--;
 
