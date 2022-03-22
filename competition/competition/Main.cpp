@@ -17,7 +17,7 @@ void testFunctionUndo()
 
 	StackArr<undoOperations>myStack;    // A stack to push operations and pop last operation as top 
 
-	
+
 	while (true)
 	{
 
@@ -34,15 +34,15 @@ void testFunctionUndo()
 		cout << "6 )  Exit .\n" << endl;
 
 		cout << "Please enter your choice from 1 to 6 : ";
-		
+
 		int choice;
 
 		cin >> choice;
-		
+
 		if (choice == 1) // Operation number one ===> Append 
 		{
 
-			operation.numOfOperation = choice;                        
+			operation.numOfOperation = choice;
 
 			cout << "\n\nPlease enter number you want to append in your list : ";
 
@@ -73,12 +73,12 @@ void testFunctionUndo()
 
 			cin >> value;
 
-			myList.InsertAt(operation.index,value);  // Insert number to my list
+			myList.InsertAt(operation.index, value);  // Insert number to my list
 
 			cout << endl << endl;
 
 			myStack.Push(operation); // Push operation to my stack
-			
+
 		}
 
 		else if (choice == 3) // Operation number three ===> Delete number with index from my list
@@ -88,8 +88,8 @@ void testFunctionUndo()
 
 			cout << "\n\nPlease enter index of item you want to delete : ";
 
-			cin >> operation.index;//0
-			                       //10
+			cin >> operation.index;
+
 			operation.deletedValue = myList.At(operation.index); // Store number with index befor deleting it 
 
 			myList.DeleteAt(operation.index); // detete number
