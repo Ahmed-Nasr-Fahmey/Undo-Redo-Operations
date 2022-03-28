@@ -251,7 +251,25 @@ void linkedListStack<T>::UndoInsertAt(int index) // to undo inserted number , i 
 
 }
 
+template<class T>
 
+void linkedListStack<T>::LLswap(int pos1, int pos2) //to swap 2 values
+{
+
+	T temp;
+
+	temp = At(pos1);
+
+
+	DeleteAt(pos1);
+
+	InsertAt(pos1, At(pos2 - 1));
+
+	DeleteAt(pos2);
+
+	InsertAt(pos2, temp);
+
+}
 
 template<class T>
 
