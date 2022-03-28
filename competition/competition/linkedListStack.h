@@ -54,6 +54,8 @@ public:
 
 	void UndoInsertAt(int); // undo insert operation
 
+	void LLswap(int, int); // Swap 2 values
+
 	~linkedListStack(void); // disrtactor
 
 };
