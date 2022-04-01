@@ -29,7 +29,7 @@ void testFunctionUndo()
 
 		cout << "4 )  Undo operation from your list . " << endl;
 
-		cout << "5 )  Desplay your item list . " << endl;
+		cout << "5 )  Display your item list . " << endl;
 
 		cout << "6 ) Swap two values ." << endl;
 
