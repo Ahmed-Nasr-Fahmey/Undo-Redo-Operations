@@ -31,9 +31,7 @@ void testFunctionUndo()
 
 		cout << "5 )  Display your item list . " << endl;
 
-		cout << "6 ) Swap two values ." << endl;
-
-		cout << "7 )  Exit .\n" << endl;
+		cout << "6 )  Exit .\n" << endl;
 
 		cout << "Please enter your choice from 1 to 6 : ";
 
@@ -150,26 +148,7 @@ void testFunctionUndo()
 
 		}
 
-		else if (choice == 6) // Swap 
-		{
-
-			int pos1, pos2;
-
-			cout << "\n\nEnter position 1 : ";
-
-			cin >> pos1;
-
-			cout << "\nEnter positin 2 : ";
-			
-			cin >> pos2;
-
-			myList.LLswap(pos1, pos2);
-
-			cout << endl << endl;
-
-		}	
-
-		else if (choice == 7) // Exit
+		else if (choice == 6) // Exit
 		{
 
 			break;
